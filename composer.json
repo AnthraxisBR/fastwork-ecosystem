@@ -1,0 +1,24 @@
+{
+    "name": "anthraxisbr/fastwork-ecosystem",
+    "authors": [
+        {
+            "name": "Gabriel Mourão",
+            "email": "gabrielmouraodemelo@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "vlucas/phpdotenv": "^4.0@dev",
+        "phpunit/phpunit": "^8.5@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "AnthraxisBR\\FastWorkEcosystem\\": "src/",
+            "AnthraxisBR\\Tests\\" : "tests/"
+        },
+        "psr-0": {
+            "AnthraxisBR\\FastWorkEcosystem\\": "src/",
+            "AnthraxisBR\\Tests\\" : "tests/"
+        }
+    }
+}
