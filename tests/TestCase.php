@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace AnthraxisBR\Tests;
 
 
 class TestCase extends \PHPUnit\Framework\TestCase
@@ -9,7 +9,8 @@ class TestCase extends \PHPUnit\Framework\TestCase
     {
         parent::setUp();
 
-        $dotenv = \Dotenv\Dotenv::create(__DIR__,'../.env');
+        $dotenv = \Dotenv\Dotenv::create(__DIR__,'/../.env');
         $dotenv->load();
+
     }
 }
