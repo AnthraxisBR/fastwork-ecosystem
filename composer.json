@@ -9,7 +9,10 @@
     "minimum-stability": "dev",
     "require": {
         "vlucas/phpdotenv": "^4.0@dev",
-        "phpunit/phpunit": "^8.5@dev"
+        "phpunit/phpunit": "^8.5@dev",
+        "anthraxisbr/fastwork-debugger": "dev-master"
+    },
+    "require-dev": {
     },
     "autoload": {
         "psr-4": {
@@ -20,5 +23,19 @@
             "AnthraxisBR\\FastWorkEcosystem\\": "src/",
             "AnthraxisBR\\Tests\\" : "tests/"
         }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/AnthraxisBR/fastwork-debugger"
+        }
+    ],
+    "scripts": {
+        "post-update-cmd": [
+            "AnthraxisBR\\FastWorkEcosystem\\Helpers\\Scafold::run"
+        ],
+        "post-install-cmd": [
+            "AnthraxisBR\\FastWorkEcosystem\\Helpers\\Scafold::run"
+        ]
     }
 }

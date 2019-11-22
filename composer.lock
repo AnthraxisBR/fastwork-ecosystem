@@ -4,8 +4,43 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9f9bd2fea9db4d96965bedd057cf38d3",
+    "content-hash": "43806f567b574daffad473ef7a63860e",
     "packages": [
+        {
+            "name": "anthraxisbr/fastwork-debugger",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/AnthraxisBR/fastwork-debugger.git",
+                "reference": "d4b7907293dc30950483c11f98d945ce320c2ee5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/AnthraxisBR/fastwork-debugger/zipball/d4b7907293dc30950483c11f98d945ce320c2ee5",
+                "reference": "d4b7907293dc30950483c11f98d945ce320c2ee5",
+                "shasum": ""
+            },
+            "require-dev": {
+                "symfony/var-dumper": "^5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/globalfunctions.php"
+                ]
+            },
+            "authors": [
+                {
+                    "name": "Gabriel Mourão",
+                    "email": "gabrielmouraodemelo@gmail.com"
+                }
+            ],
+            "support": {
+                "source": "https://github.com/AnthraxisBR/fastwork-debugger/tree/v0.0.1",
+                "issues": "https://github.com/AnthraxisBR/fastwork-debugger/issues"
+            },
+            "time": "2019-11-22T01:49:50+00:00"
+        },
         {
             "name": "doctrine/instantiator",
             "version": "1.3.x-dev",
@@ -480,12 +515,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "b85a9205e06bead6f243af7f29812d8a62e50027"
+                "reference": "f1884187926fbb755a9aaf0b3836ad3165b478bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/b85a9205e06bead6f243af7f29812d8a62e50027",
-                "reference": "b85a9205e06bead6f243af7f29812d8a62e50027",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/f1884187926fbb755a9aaf0b3836ad3165b478bf",
+                "reference": "f1884187926fbb755a9aaf0b3836ad3165b478bf",
                 "shasum": ""
             },
             "require": {
@@ -535,7 +570,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-11-03T06:15:39+00:00"
+            "time": "2019-11-20T13:55:58+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -732,12 +767,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "a98ff6bb0060f2ae1717f8c556db3ab808558119"
+                "reference": "f2eeaa3cdab29a70ba900d5f1c67f841adf028ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/a98ff6bb0060f2ae1717f8c556db3ab808558119",
-                "reference": "a98ff6bb0060f2ae1717f8c556db3ab808558119",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/f2eeaa3cdab29a70ba900d5f1c67f841adf028ea",
+                "reference": "f2eeaa3cdab29a70ba900d5f1c67f841adf028ea",
                 "shasum": ""
             },
             "require": {
@@ -807,7 +842,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-11-08T23:58:54+00:00"
+            "time": "2019-11-21T09:37:31+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -924,12 +959,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "2ce6675fe77612cce2a49d0cecb4e7afead64323"
+                "reference": "16e54fbc971c14d98779b9c3b22572178ff9411f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/2ce6675fe77612cce2a49d0cecb4e7afead64323",
-                "reference": "2ce6675fe77612cce2a49d0cecb4e7afead64323",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/16e54fbc971c14d98779b9c3b22572178ff9411f",
+                "reference": "16e54fbc971c14d98779b9c3b22572178ff9411f",
                 "shasum": ""
             },
             "require": {
@@ -937,7 +972,7 @@
             },
             "require-dev": {
                 "phpunit/phpunit": "^7.5 || ^8.0",
-                "symfony/process": "^2 || ^3.3 || ^4"
+                "symfony/process": "^2 || ^3.3 || ^4 || ^5"
             },
             "type": "library",
             "extra": {
@@ -972,7 +1007,7 @@
                 "unidiff",
                 "unified diff"
             ],
-            "time": "2019-10-23T09:06:00+00:00"
+            "time": "2019-11-18T19:26:59+00:00"
         },
         {
             "name": "sebastian/environment",
@@ -980,12 +1015,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "0f73ef4aa2d8a5e00393c06729012a50845e9e4c"
+                "reference": "464c90d7bdf5ad4e8a6aea15c091fec0603d4368"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/0f73ef4aa2d8a5e00393c06729012a50845e9e4c",
-                "reference": "0f73ef4aa2d8a5e00393c06729012a50845e9e4c",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/464c90d7bdf5ad4e8a6aea15c091fec0603d4368",
+                "reference": "464c90d7bdf5ad4e8a6aea15c091fec0603d4368",
                 "shasum": ""
             },
             "require": {
@@ -1025,7 +1060,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2019-10-23T09:05:42+00:00"
+            "time": "2019-11-20T08:46:58+00:00"
         },
         {
             "name": "sebastian/exporter",
@@ -1635,7 +1670,8 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "vlucas/phpdotenv": 20,
-        "phpunit/phpunit": 20
+        "phpunit/phpunit": 20,
+        "anthraxisbr/fastwork-debugger": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

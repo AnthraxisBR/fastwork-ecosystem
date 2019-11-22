@@ -1,32 +1,56 @@
 <?php
 
 
-namespace AnthraxisBR\FastWorkEcosystem\Config\NGINX\Server;
+namespace AnthraxisBR\FastWorkEcosystem\Config\Server\NGINX;
 
 
 class NGINXConfHttpUpstream
 {
 
-    private $servers = ['127.0.0.3:8000 weight=5'];
+    private $servers = [];
 
-    public function __construct(string $server)
+    private $upstreamName = '';
+
+    public function __construct(string $upstreamName)
     {
-        $this->pushServer($server);
+        $this->setUpstreamName($upstreamName);
     }
 
     public function __toString() : string
     {
-        return "upstream \n{ {$this->concatServers()}\n }";
+        return "upstream {$this->getUpstreamName()} \n{ {$this->concatServers()}}";
     }
 
     public function concatServers() : string
     {
-        $str = '';
+        $str = "\n";
+        $c = 0;
         foreach ($this->getServers() as $server){
-            $str .= "{$server};\n";
+            $str .= "    {$server};";
+            if(count($this->getServers()) >= $c){
+                $str .= "\n";
+            }
         }
         return $str;
     }
+
+    /**
+     * @return string
+     */
+    public function getUpstreamName(): string
+    {
+        return $this->upstreamName;
+    }
+
+    /**
+     * @param string $upstreamName
+     */
+    public function setUpstreamName(string $upstreamName): void
+    {
+        $this->upstreamName = $upstreamName;
+    }
+
+
 
     public function pushServer($server) : void
     {
