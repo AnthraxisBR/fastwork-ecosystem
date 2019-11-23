@@ -1,24 +1,29 @@
 <?php
 
 
-namespace AnthraxisBR\FastWorkEcosystem\Config\NGINX\Server;
+namespace AnthraxisBR\FastWorkEcosystem\Config\Server\NGINX;
 
 
 class NGINXConfHttpServer
 {
 
-    private $listen = '80';
+    private $listen;
 
-    private $server_name = 'localhost';
+    private $serverName;
 
-    private $access_log = 'logs/domain1.access.log  main';
+    private $root;
 
-    private $root = 'html';
+    private $accessLog;
 
-    private $location = [];
+    private $location;
 
-    public function __construct()
+    public function __construct($listen, $serverName, $root = null, $accessLog = null, NGINXConfHttpServerLocation $location = null)
     {
+        $this->setListen($listen);
+        $this->setServerName($serverName);
+        $this->setAccessLog($accessLog);
+        $this->setRoot($root);
+        $this->setLocation($location);
     }
 
     /**
@@ -42,15 +47,15 @@ class NGINXConfHttpServer
      */
     public function getServerName(): string
     {
-        return $this->server_name;
+        return $this->serverName;
     }
 
     /**
-     * @param string $server_name
+     * @param string $serverName
      */
-    public function setServerName(string $server_name): void
+    public function setServerName(string $serverName): void
     {
-        $this->server_name = $server_name;
+        $this->serverName = $serverName;
     }
 
     /**
@@ -58,7 +63,7 @@ class NGINXConfHttpServer
      */
     public function getAccessLog(): string
     {
-        return $this->access_log;
+        return $this->accessLog;
     }
 
     /**
@@ -66,7 +71,7 @@ class NGINXConfHttpServer
      */
     public function setAccessLog(string $access_log): void
     {
-        $this->access_log = $access_log;
+        $this->accessLog = $access_log;
     }
 
     /**
@@ -94,9 +99,9 @@ class NGINXConfHttpServer
     }
 
     /**
-     * @param array $location
+     * @param NGINXConfHttpServerLocation $location
      */
-    public function setLocation(array $location): void
+    public function setLocation(NGINXConfHttpServerLocation $location): void
     {
         $this->location = $location;
     }
