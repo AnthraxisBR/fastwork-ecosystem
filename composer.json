@@ -10,9 +10,11 @@
     "require": {
         "vlucas/phpdotenv": "^4.0@dev",
         "phpunit/phpunit": "^8.5@dev",
-        "anthraxisbr/fastwork-debugger": "dev-master"
+        "anthraxisbr/fastwork-debugger": "dev-master",
+        "composer/composer": "^1.10@dev"
     },
     "require-dev": {
+        "symfony/var-dumper": "^5.0"
     },
     "autoload": {
         "psr-4": {
@@ -30,6 +32,9 @@
             "url": "https://github.com/AnthraxisBR/fastwork-debugger"
         }
     ],
+    "extra": {
+        "class": "AnthraxisBR\\FastWorkEcosystem\\Helpers\\Scafold"
+    },
     "scripts": {
         "post-update-cmd": [
             "AnthraxisBR\\FastWorkEcosystem\\Helpers\\Scafold::run"
