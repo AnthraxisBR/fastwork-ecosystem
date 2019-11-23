@@ -27,7 +27,6 @@ class NGINXConfHttpUpstreamTest extends NGINXTest
 
     public function testConcatServers()
     {
-        ddd('asdasd');
         $this->instance->pushServer('127.0.0.1:8000');
 
         $this->assertEquals('upstream test_upstream 
