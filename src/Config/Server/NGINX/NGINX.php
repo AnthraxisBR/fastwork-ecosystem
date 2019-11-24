@@ -1,7 +1,7 @@
 <?php
 
 
-namespace  AnthraxisBR\FastWorkEcosystem\Config\NGINX\Server;
+namespace  AnthraxisBR\FastWorkEcosystem\Config\Server\NGINX;
 
 use AnthraxisBR\FastWorkEcosystem\Config\Config;
 

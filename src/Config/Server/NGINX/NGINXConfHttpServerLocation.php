@@ -33,15 +33,15 @@ class NGINXConfHttpServerLocation extends NGINXConfHttpServer
 
     public function __toString() : string
     {
-        $string = "location {$this->getLocation()} \n{\n";
-        $string .= "    {$this->getRoot()}\n";
+        $string = "    location {$this->getLocation()} {\n";
+        $string .= "            root {$this->getRoot()};\n";
         if(!is_null($this->getExpires())){
-            $string .= "    {$this->getExpires()}\n";
+            $string .= "        {$this->getExpires()};\n";
         }
         if(!is_null($this->getProxyPass())){
-            $string .= "    {$this->getProxyPass()}\n";
+            $string .= "        {$this->getProxyPass()};\n";
         }
-        $string .= '}';
+        $string .= "        }\n";
         return $string;
     }
 

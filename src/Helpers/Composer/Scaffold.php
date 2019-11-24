@@ -3,6 +3,7 @@
 
 namespace AnthraxisBR\FastWorkEcosystem\Helpers;
 
+use Composer\Script\Event;
 
 class Scaffold
 {
@@ -11,8 +12,18 @@ class Scaffold
 
     }
 
-    public function run()
+
+    public static function run(Event $event)
     {
+        $composer = $event->getComposer();
+        ddd($composer);
         echo 'autoloadable';
+    }
+
+
+    public static function warmCache(Event $event)
+    {
+
+        // make cache toasty
     }
 }

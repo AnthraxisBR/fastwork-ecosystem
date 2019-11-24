@@ -21,9 +21,27 @@ class NGINXConfHttpServer
     {
         $this->setListen($listen);
         $this->setServerName($serverName);
-        $this->setAccessLog($accessLog);
-        $this->setRoot($root);
-        $this->setLocation($location);
+        is_null($accessLog) ?: $this->setAccessLog($accessLog);
+        is_null($root) ?: $this->setRoot($root);
+        is_null($location) ?: $this->setLocation($location);
+    }
+
+    public function __toString() : string
+    {
+        $string = "    server {\n";
+        $string .= "        listen {$this->getListen()};\n";
+        $string .= "        server_name {$this->getServerName()};\n";
+        if(!is_null($this->getAccessLog())){
+            $string .= "        access_log {$this->getAccessLog()};\n";
+        }
+        if(!is_null($this->getRoot())){
+            $string .= "        root {$this->getRoot()};\n";
+        }
+        if(!is_null($this->getLocation())){
+            $string .= "    {$this->getLocation()}";
+        }
+        $string .= "    }\n";
+        return $string;
     }
 
     /**
@@ -61,7 +79,7 @@ class NGINXConfHttpServer
     /**
      * @return string
      */
-    public function getAccessLog(): string
+    public function getAccessLog()
     {
         return $this->accessLog;
     }
@@ -77,7 +95,7 @@ class NGINXConfHttpServer
     /**
      * @return string
      */
-    public function getRoot(): string
+    public function getRoot()
     {
         return $this->root;
     }
@@ -93,7 +111,7 @@ class NGINXConfHttpServer
     /**
      * @return array
      */
-    public function getLocation(): array
+    public function getLocation()
     {
         return $this->location;
     }
