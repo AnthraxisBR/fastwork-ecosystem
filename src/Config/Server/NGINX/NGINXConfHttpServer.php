@@ -4,7 +4,7 @@
 namespace AnthraxisBR\FastWorkEcosystem\Config\Server\NGINX;
 
 
-class NGINXConfHttpServer
+class NGINXConfHttpServer extends NGINX
 {
 
     private $listen;

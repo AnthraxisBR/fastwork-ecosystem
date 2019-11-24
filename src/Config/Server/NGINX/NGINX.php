@@ -23,7 +23,6 @@ class NGINX extends Config
     public $ssl_key_file = '';
     public $http2 = false;
 
-
     /**
      * @return int
      */

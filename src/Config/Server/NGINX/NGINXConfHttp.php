@@ -12,9 +12,9 @@ class NGINXConfHttp extends NGINX
 
     private $index = [];
 
-    private $include = [];
-
     private $server;
+
+    private $include = [];
 
     private $upstream;
 
@@ -32,7 +32,7 @@ class NGINXConfHttp extends NGINX
 
     private $servers = [];
 
-    public function __construct($index = ['index.html', 'index.php', 'index.htm'], $include = null,  NGINXConfHttpServer $server = null, NGINXConfHttpUpstream $upstream = null, $defaultType = null, $logFormat = null, $accessLog = null, $sendfile = null, $tcpNopush = null, $serverNamesHashBucketSize = null)
+    public function __construct($index = ['index.html', 'index.php', 'index.htm'],  NGINXConfHttpServer $server = null, $include = null, NGINXConfHttpUpstream $upstream = null, $defaultType = null, $logFormat = null, $accessLog = null, $sendfile = null, $tcpNopush = null, $serverNamesHashBucketSize = null)
     {
         $this->setIndex($index);
         is_null($include) ?: $this->setInclude($include);
