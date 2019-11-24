@@ -30,12 +30,13 @@ class NGINXConfHttp extends NGINX
 
     private $serverNamesHashBucketSize;
 
+    private $servers = [];
 
     public function __construct($index = ['index.html', 'index.php', 'index.htm'], $include = null,  NGINXConfHttpServer $server = null, NGINXConfHttpUpstream $upstream = null, $defaultType = null, $logFormat = null, $accessLog = null, $sendfile = null, $tcpNopush = null, $serverNamesHashBucketSize = null)
     {
         $this->setIndex($index);
         is_null($include) ?: $this->setInclude($include);
-        is_null($server) ?: $this->setServer($server);
+        is_null($server) ?: $this->pushServer($server);
         is_null($upstream) ?: $this->setUpstream($upstream);
         is_null($defaultType) ?: $this->setDefaultType($defaultType);
         is_null($logFormat) ?: $this->setLogFormat($logFormat);
@@ -51,9 +52,37 @@ class NGINXConfHttp extends NGINX
         foreach ($this->getInclude() as $include){
             $string .= "   {$include};\n";
         }
-        $string .= (string) $this->getServer();
+        if(count($this->getServers()) > 0){
+
+            foreach ($this->getServers() as $server){
+                $string .= (string) $server;
+            }
+        }else{
+            $string .= (string) $this->getServer();
+        }
         $string .= "}\n";
         return $string;
+    }
+
+    public function pushServer(NGINXConfHttpServer $server)
+    {
+        $this->servers[] = $server;
+    }
+
+    /**
+     * @return array
+     */
+    public function getServers(): array
+    {
+        return $this->servers;
+    }
+
+    /**
+     * @param array $servers
+     */
+    public function setServers(array $servers): void
+    {
+        $this->servers = $servers;
     }
 
     /**

@@ -19,8 +19,9 @@ class NGINXConfHttpServerLocation extends NGINXConfHttpServer
 
     private $proxyPass;
 
+    private $caseSensitive = true;
 
-    public function __construct($location, $root, $fastcgiPass = null, $expires = null, $proxyPass = null)
+    public function __construct($location, $root = null, $fastcgiPass = null, $expires = null, $proxyPass = null)
     {
 
         is_null($location) ?: $this->setLocation($location);
@@ -34,16 +35,49 @@ class NGINXConfHttpServerLocation extends NGINXConfHttpServer
     public function __toString() : string
     {
         $string = "    location {$this->getLocation()} {\n";
-        $string .= "            root {$this->getRoot()};\n";
+        if(!is_null($this->getRoot())) {
+            $string .= "            root {$this->getRoot()};\n";
+        }
         if(!is_null($this->getExpires())){
-            $string .= "        {$this->getExpires()};\n";
+            $string .= "            expires {$this->getExpires()};\n";
         }
         if(!is_null($this->getProxyPass())){
-            $string .= "        {$this->getProxyPass()};\n";
+            $string .= "            proxy_pass {$this->getProxyPass()};\n";
         }
         $string .= "        }\n";
         return $string;
     }
+
+    private function isRegularExpression()
+    {
+        try {
+            preg_match($this->getLocation(), '');
+        }catch (\Exception $e){
+            return false;
+        }
+    }
+
+    public function setCaseInsensitiveRegex() : void
+    {
+        $this->setCaseSensitive(false);
+    }
+
+    /**
+     * @return bool
+     */
+    public function isCaseSensitive(): bool
+    {
+        return $this->caseSensitive;
+    }
+
+    /**
+     * @param bool $caseSensitive
+     */
+    public function setCaseSensitive(bool $caseSensitive): void
+    {
+        $this->caseSensitive = $caseSensitive;
+    }
+
 
     /**
      * @return mixed
